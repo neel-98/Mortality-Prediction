@@ -1,0 +1,8 @@
+Requirement already satisfied: extension in c:\users\srushti\anaconda3\lib\site-packages (1.0.0)
+Requirement already satisfied: markdown>=3.0.1 in c:\users\srushti\anaconda3\lib\site-packages (from extension) (3.3.4)
+Requirement already satisfied: flask>=1.0.2 in c:\users\srushti\anaconda3\lib\site-packages (from extension) (1.1.2)
+Requirement already satisfied: Jinja2>=2.10.1 in c:\users\srushti\anaconda3\lib\site-packages (from flask>=1.0.2->extension) (2.11.2)
+Requirement already satisfied: click>=5.1 in c:\users\srushti\anaconda3\lib\site-packages (from flask>=1.0.2->extension) (7.1.2)
+Requirement already satisfied: Werkzeug>=0.15 in c:\users\srushti\anaconda3\lib\site-packages (from flask>=1.0.2->extension) (1.0.1)
+Requirement already satisfied: itsdangerous>=0.24 in c:\users\srushti\anaconda3\lib\site-packages (from flask>=1.0.2->extension) (1.1.0)
+Requirement already satisfied: MarkupSafe>=0.23 in c:\users\srushti\anaconda3\lib\site-packages (from Jinja2>=2.10.1->flask>=1.0.2->extension) (1.1.1)
