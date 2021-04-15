@@ -1,0 +1,45 @@
+<html>
+<style>
+  * {
+    background-color: #ffffdc;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  .menubtn {
+    position: relative;
+    width: 48%;
+    height: 60%;
+    font-size: 20px;
+    color:lime;
+}
+  
+
+  #menu {
+    float: center;
+    margin-top: 5%;
+    width: 100%;
+    background-color: #ffffdc;
+  }
+</style>
+
+<head>
+  <title>Mortality Prediction for COVID-19 and Organ Dysfunction patients</title>
+</head>
+
+<body align="middle">
+  <h1>Mortality Prediction</h1>
+  <form action="{{ url_for('main') }}" method="POST" id="menu">
+    <input class="menubtn" type="submit" value="Covid" name="Covid" style="
+    background-image: url(https://phil.cdc.gov//PHIL_Images/23311/23311_lores.jpg);
+"/>
+    <input class="menubtn" type="submit" value="Sofa Score" name="Sofa Score" style="
+    background-image: url(https://industry.asianhhm.com/articles/images/target-organs-in-covid.jpg);
+"/>
+  </form>
+
+</body>
+
+</html>
