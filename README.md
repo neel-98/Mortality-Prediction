@@ -11,4 +11,8 @@ This project followed the data cleaning, Exploratory data analysis, data modelli
 ![image](https://user-images.githubusercontent.com/37670032/149414533-a62bbc32-1e54-47ca-937b-bc9803528223.png)
 ![image](https://user-images.githubusercontent.com/37670032/149414592-288717ab-eeb0-4531-885c-5ef593878481.png)
 
-detailed presentation video can be found [here](https://youtu.be/goBp7IOKKek).
+Documentations are atteched to this repository or can be directly access through these links:
+- [Self Contained Setup Guide](https://github.com/neel-98/Mortality-Prediction/blob/main/1.3%20Self_contained_setup_guide.pdf)
+- [Report](https://github.com/neel-98/Mortality-Prediction/blob/main/Data_science_Project_Report.pdf)
+- [User Guide for Data Analysts](https://github.com/neel-98/Mortality-Prediction/blob/main/User%20Guide%20for%20Analysts.pdf)
+- [Presentation Video](https://youtu.be/goBp7IOKKek).
