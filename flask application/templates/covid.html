@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<style>
+  * {
+    background-color: #ffffdc;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  #CVD {
+    float: left;
+    margin-top: 4%;
+    margin-left: 20%;
+    width: 30%;
+    background-color: #ffffdc;
+  }
+
+  #menu {
+    float: center;
+    margin-top: 5%;
+    width: 60%;
+    background-color: #ffffdc;
+  }
+
+  select {
+    position: absolute;
+    left: 42%;
+    width: 50%;
+  }
+
+  .text {
+    position: absolute;
+    left: 42%;
+    width: 48%;
+  }
+
+  .menubtn {
+    position: relative;
+    left: 42%;
+    width: 48%;
+    height: 45px;
+  }
+
+  .result {
+    float: right;
+    margin-top: 18%;
+    margin-right: 15%;
+    width: 25%;
+    border: 5px solid brown;
+  }
+</style>
+
+<head>
+  <title>COVID risk prediction</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+  </script>
+</head>
+
+<body>
+  <form action="{{ url_for('main') }}" method="POST" id="menu">
+    <input class="menubtn" type="submit" value="Covid" name="Covid" />
+    <input class="menubtn" type="submit" value="Sofa Score" name="Sofa Score" />
+  </form>
+
+  <form id="CVD" action="{{ url_for('main') }}" method="POST">
+    <fieldset style="position: relative;border: 5px solid brown;">
+      <legend style="text-align: center; font-size: 20px;">Pre-conditions</legend>
+
+      <label>Sex:</label>
+      <select name="sex" required>
+        <option value="1">Female</option>
+        <option value="0">Male</option>
+      </select>
+      <br>
+      <br>
+      <label>Intubated:</label>
+      <select name="intubated" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Pneumonia:</label>
+      <select name="pneumonia" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Age:</label>
+      <input class="text" name="age" type="number" required>
+      <br>
+      <br>
+      <label>Pregnant:</label>
+      <select name="pregnancy" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Diabetes:</label>
+      <select name="diabetes" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Copd:</label>
+      <select name="copd" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Asthma:</label>
+      <select name="asthma" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Immunosuppression:</label>
+      <select name="immunosuppression" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Hypertension:</label>
+      <select name="hypertension" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Other_disease:</label>
+      <select name="other_disease" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Cardiovascular:</label>
+      <select name="cardiovascular" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Obesity:</label>
+      <select name="obesity" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Renal_chronic:</label>
+      <select name="renal_chronic" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Tobacco:</label>
+      <select name="tobacco" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>ICU:</label>
+      <select name="icu" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <label>Hospitalized:</label>
+      <select name="hospitalized" type="number" required>
+        <option value="1">Yes</option>
+        <option value="0" selected="selected">No</option>
+      </select>
+      <br>
+      <br>
+      <input class="text" value="Predict Covid" name="Predict Covid" style="background: #efcaa3; width: 25%;"
+        type="submit">
+    </fieldset>
+  </form>
+  <br>
+  <div class="result" align="center">
+    <br>
+    <h2>Predicted mortality risk:</h2>
+    <p id="res">{{ result }}</p>
+    <div v-html="message" id="app"></div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: document.getElementById("res").innerText
+      }
+    })
+    document.getElementById("res").style.visibility = "hidden";
+  </script>
+</body>
+
+</html>
